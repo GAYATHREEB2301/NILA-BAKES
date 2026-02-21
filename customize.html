@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Cake | NILA BAKES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ffd1dc;
+            border-radius: 10px;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(255, 183, 197, 0.5);
+        }
+
+        .customize-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+
+<body class="bg-customize">
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><circle cx="7" cy="4" r=".5" fill="currentColor"/><circle cx="12" cy="4" r=".5" fill="currentColor"/><circle cx="17" cy="4" r=".5" fill="currentColor"/></svg></div>
+                <span>NILA BAKES</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item">
+                        <a href="menu.html" class="nav-link">Menu ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="cakes.html">Cakes</a></li>
+                            <li class="dropdown-item"><a href="pastries.html">Pastries</a></li>
+                            <li class="dropdown-item"><a href="cupcakes.html">Cup Cakes</a></li>
+                            <li class="dropdown-item"><a href="mugcakes.html">Mug Cakes</a></li>
+                            <li class="dropdown-item"><a href="brownies.html">Brownies</a></li>
+                            <li class="dropdown-item"><a href="themecakes.html">Theme Cakes</a></li>
+                            <li class="dropdown-item"><a href="eggless.html">Eggless Cakes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="occasions.html" class="nav-link">Occasions ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="birthday.html">Birthday</a></li><li class="dropdown-item"><a href="parties.html">Parties</a></li><li class="dropdown-item"><a href="anniversary.html">Anniversary</a></li><li class="dropdown-item"><a href="babyshower.html">Baby Shower</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item active"><a href="customize.html" class="nav-link">Customize</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item">
+                        <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="nav-item"><a href="#" class="btn" id="login-trigger">Login</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Craft Your Masterpiece</h1>
+                <p>Tell us your dream cake, and we'll bake it to perfection.</p>
+            </div>
+        </section>
+
+        <section id="customize-form">
+            <div class="container">
+                <div class="customize-container">
+                    <div class="section-header" style="margin-bottom: 30px;">
+                        <h2>Cake Customization</h2>
+                    </div>
+                    <form action="#">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="cake-type">Cake Category</label>
+                                <select id="cake-type" class="form-control">
+                                    <option>Standard Cake</option>
+                                    <option>Designer Cake</option>
+                                    <option>Photo Cake</option>
+                                    <option>Eggless Cake</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="flavor">Select Flavor</label>
+                                <select id="flavor" class="form-control">
+                                    <option>Belgian Chocolate</option>
+                                    <option>Red Velvet</option>
+                                    <option>Butterscotch</option>
+                                    <option>Vanilla Cream</option>
+                                    <option>Strawberry Bliss</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="weight">Weight (kg)</label>
+                                <select id="weight" class="form-control">
+                                    <option>0.5 kg</option>
+                                    <option>1.0 kg</option>
+                                    <option>1.5 kg</option>
+                                    <option>2.0 kg</option>
+                                    <option>Above 2 kg</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="shape">Cake Shape</label>
+                                <select id="shape" class="form-control">
+                                    <option>Round</option>
+                                    <option>Square</option>
+                                    <option>Heart</option>
+                                    <option>Tiered</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message on Cake</label>
+                            <input type="text" id="message" class="form-control"
+                                placeholder="E.g. Happy Birthday Sarah!">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Upload Reference Image (Optional)</label>
+                            <input type="file" id="image" class="form-control" style="padding: 10px;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instructions">Special Instructions</label>
+                            <textarea id="instructions" class="form-control" rows="4"
+                                placeholder="Mention any specific design or allergy requirements..."></textarea>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 30px;">
+                            <button type="submit" class="btn" style="padding: 15px 50px; font-size: 1.1rem;">Design Your
+                                Cake</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><circle cx="7" cy="4" r=".5" fill="currentColor"/><circle cx="12" cy="4" r=".5" fill="currentColor"/><circle cx="17" cy="4" r=".5" fill="currentColor"/></svg></div>
+                    <span>NILA BAKES</span>
+                </div>
+                <p>Bringing sweetness and elegance to your special celebrations since our home kitchen beginnings.
+                    Handcrafted with love, shared with joy.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p>12, Anna Salai, Chennai, Tamil Nadu, India<br>Phone: +91 94440 12345<br>Email: hello@nilabakes.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" title="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" title="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright-bar">
+        <div class="container">
+            <p>&copy; 2026 NILA BAKES. Handcrafted with love. All rights reserved.</p>
+        </div>
+    </div>
+
+            <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="login-form">
+                <div class="auth-header">
+                    <h2>Login</h2>
+                    <p>Login to your NILA BAKES account</p>
+                </div>
+                <form action="#">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group" style="position: relative;">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                        <a href="#"
+                            style="position: absolute; right: 0; top: 0; font-size: 0.8rem; color: var(--accent-color); font-weight: 500;">Forgot?</a>
+                    </div>
+                    <button type="submit" class="btn"
+                        style="width: 100%; padding: 15px; margin-top: 10px;">Login</button>
+                </form>
+                <div class="auth-toggle" style="text-align: center; margin-top: 20px;">
+                    Don't have an account? <a href="#" id="show-signup"
+                        style="color: var(--accent-color); font-weight: 600;">Sign Up</a>
+                </div>
+            </div>
+            <div id="signup-form" style="display: none;">
+                <div class="auth-header">
+                    <h2>Sign Up</h2>
+                    <p>Create your NILA BAKES account</p>
+                </div>
+                <form action="#">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">Sign Up</button>
+                </form>
+                <div class="auth-toggle" style="text-align: center; margin-top: 20px;">
+                    Already have an account? <a href="#" id="show-login"
+                        style="color: var(--accent-color); font-weight: 600;">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
