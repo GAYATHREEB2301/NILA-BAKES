@@ -306,6 +306,7 @@ img {
     font-family: 'Playfair Display', serif;
     letter-spacing: 0.5px;
     line-height: normal;
+    white-space: nowrap;
 }
 
 .logo-icon {
@@ -1029,6 +1030,8 @@ footer {
 
     .logo {
         order: 1;
+        font-size: 1.4rem;
+        gap: 10px;
     }
 
     .nav-item {
@@ -1078,16 +1081,14 @@ footer {
         font-size: 0.85rem;
     }
 
-    .logo {
-        font-size: 1.2rem;
-    }
+
 
     .logo-icon {
-        height: 38px;
-        width: 38px;
+        height: 40px;
+        width: 40px;
         background: var(--primary-light);
         box-shadow: none;
-        padding: 6px;
+        padding: 7px;
     }
 
     .section-header {
@@ -1121,8 +1122,43 @@ footer {
         font-size: 1.1rem;
     }
 
+    .logo {
+        font-size: 1.15rem;
+        gap: 8px;
+    }
+
     .logo span {
-        display: none;
+        display: block;
+    }
+
+    .logo-icon {
+        height: 34px;
+        width: 34px;
+        padding: 6px;
+    }
+
+    .header-right-actions {
+        gap: 8px;
+    }
+
+    .cart-toggle,
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cart-toggle svg,
+    .theme-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+        top: -3px;
+        right: -3px;
     }
 }
 
