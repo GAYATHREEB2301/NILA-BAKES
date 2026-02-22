@@ -17,10 +17,21 @@
 
 <body class="bg-home">
 
-        <header>
+    <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><circle cx="7" cy="4" r=".5" fill="currentColor"/><circle cx="12" cy="4" r=".5" fill="currentColor"/><circle cx="17" cy="4" r=".5" fill="currentColor"/></svg></div>
+                <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
+                        <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
+                        <path d="M2 21h20" />
+                        <path d="M7 8v3" />
+                        <path d="M12 8v3" />
+                        <path d="M17 8v3" />
+                        <circle cx="7" cy="4" r=".5" fill="currentColor" />
+                        <circle cx="12" cy="4" r=".5" fill="currentColor" />
+                        <circle cx="17" cy="4" r=".5" fill="currentColor" />
+                    </svg></div>
                 <span>NILA BAKES</span>
             </a>
             <nav>
@@ -56,8 +67,8 @@
 
             <div class="header-right-actions">
                 <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
@@ -82,14 +93,13 @@
         </section>
 
         <section id="introduction">
-            <div class="container" style="text-align: center; max-width: 900px;">
-                <h2 style="font-size: 3rem; margin-bottom: 25px; color: var(--accent-color);">Baking Emotions, One Cake
-                    at a Time</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px;">At NILA BAKES, we don't just bake
-                    cakes; we create centerpieces for your most cherished memories. From the first sketch of a custom
-                    design to the final swirl of frosting, every step is a testament to our commitment to handcrafted
-                    excellence.</p>
-                <div style="height: 2px; width: 100px; background: var(--primary-color); margin: 0 auto 50px;"></div>
+            <div class="container text-center max-w-900">
+                <h2 class="text-accent mb-30" style="font-size: clamp(2rem, 5vw, 3rem);">Baking Emotions, One Cake at a
+                    Time</h2>
+                <p class="f-lg mb-40">At NILA BAKES, we don't just bake cakes; we create centerpieces for your most
+                    cherished memories. From the first sketch of a custom design to the final swirl of frosting, every
+                    step is a testament to our commitment to handcrafted excellence.</p>
+                <div class="divider"></div>
             </div>
         </section>
 
@@ -170,18 +180,18 @@
             </div>
         </section>
 
-        <section id="special-offer" style="background-color: var(--primary-light); padding: 50px 0;">
+        <section id="special-offer" style="background-color: var(--primary-light);">
             <div class="container">
-                <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap;">
                     <div style="flex: 1; min-width: 300px;">
-                        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Weekend Sweetness Awaits!</h2>
-                        <p style="font-size: 1.1rem; margin-bottom: 30px;">Get a <strong>FREE set of 4 Cupcakes</strong>
+                        <h2 class="mb-20" style="font-size: clamp(2rem, 4vw, 3rem);">Weekend Sweetness Awaits!</h2>
+                        <p class="f-lg mb-30">Get a <strong>FREE set of 4 Cupcakes</strong>
                             on all orders above ₹2,499 placed this Friday. Use code: <strong>SWEETWEEKEND</strong></p>
                         <a href="menu.html" class="btn">Claim Now</a>
                     </div>
                     <div style="flex: 1; min-width: 300px; text-align: center;">
                         <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                            style="border-radius: 50%; width: 300px; height: 300px; object-fit: cover; box-shadow: var(--shadow);">
+                            style="border-radius: 50%; width: clamp(250px, 30vw, 400px); height: clamp(250px, 30vw, 400px); object-fit: cover; box-shadow: var(--shadow); margin: 0 auto;">
                     </div>
                 </div>
             </div>
@@ -193,32 +203,33 @@
                     <h2>From Our Happy Customers</h2>
                     <p>Read what people are saying about their NILA BAKES experience</p>
                 </div>
-                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                    <div class="card" style="padding: 30px; text-align: center;">
-                        <p style="font-style: italic; margin-bottom: 20px;">"The best
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div class="card" style="padding: 50px 40px; text-align: center;">
+                        <p class="f-lg mb-30" style="font-style: italic;">"The best
                             chocolate cake I've ever had! It
                             was the star of my daughter's birthday party. So moist and not too sweet."</p>
-                        <h4 style="color: var(--accent-color);">- Sarah Johnson</h4>
+                        <h4 class="text-accent">- Sarah Johnson</h4>
                     </div>
-                    <div class="card" style="padding: 30px; text-align: center;">
-                        <p style="font-style: italic; margin-bottom: 20px;">"Their custom design process is so smooth.
+                    <div class="card" style="padding: 50px 40px; text-align: center;">
+                        <p class="f-lg mb-30" style="font-style: italic;">"Their custom design process is so smooth.
                             They took my vague idea and turned it into a masterpiece for our anniversary."</p>
-                        <h4 style="color: var(--accent-color);">- Michael Reed</h4>
+                        <h4 class="text-accent">- Michael Reed</h4>
                     </div>
-                    <div class="card" style="padding: 30px; text-align: center;">
-                        <p style="font-style: italic; margin-bottom: 20px;">"Nila Bakes is my go-to for every
+                    <div class="card" style="padding: 50px 40px; text-align: center;">
+                        <p class="f-lg mb-30" style="font-style: italic;">"Nila Bakes is my go-to for every
                             celebration. The eggless options are just as delicious and fluffy as the regular ones."</p>
-                        <h4 style="color: var(--accent-color);">- Priya Sharma</h4>
+                        <h4 class="text-accent">- Priya Sharma</h4>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta" style="padding: 60px 0; text-align: center;">
+        <section id="cta" class="text-center">
             <div class="container"
-                style="background-color: var(--accent-color); padding: 60px; border-radius: 40px; color: white;">
-                <h2 style="margin-bottom: 20px;">Let's Create Your Dream Cake</h2>
-                <p style="margin-bottom: 30px; font-size: 1.2rem;">Our master bakers are ready to bring your vision to
+                style="background-color: var(--accent-color); padding: 80px 40px; border-radius: 50px; color: white;">
+                <h2 class="mb-20" style="font-size: clamp(2rem, 4vw, 3rem); color: white;">Let's Create Your Dream Cake
+                </h2>
+                <p class="f-xl mb-40">Our master bakers are ready to bring your vision to
                     life. Get a free consultation today!</p>
                 <a href="customize.html" class="btn" style="background: white; color: var(--accent-color);">Start Custom
                     Order</a>
@@ -263,14 +274,16 @@
             </div>
             <div class="footer-col">
                 <h4>Follow Us</h4>
-                                                                                                <div class="social-links">
-                    <a href="https://facebook.com/nilabakes" class="social-icon" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                <div class="social-links">
+                    <a href="https://facebook.com/nilabakes" class="social-icon" title="Facebook" aria-label="Facebook"
+                        target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                         </svg>
                     </a>
-                    <a href="https://instagram.com/nilabakes" class="social-icon" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com/nilabakes" class="social-icon" title="Instagram"
+                        aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -294,7 +307,7 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div id="login-form">
-                <div class="auth-header">
+                <div class="auth-header text-center mb-40">
                     <h2>Login</h2>
                     <p>Login to your NILA BAKES account</p>
                 </div>
@@ -307,18 +320,17 @@
                         <label>Password</label>
                         <input type="password" class="form-control" placeholder="••••••••" required>
                         <a href="#"
-                            style="position: absolute; right: 0; top: 0; font-size: 0.8rem; color: var(--accent-color); font-weight: 500;">Forgot?</a>
+                            style="position: absolute; right: 0; top: 0; font-size: 0.8rem; color: var(--accent-color); font-weight: 600;">Forgot?</a>
                     </div>
-                    <button type="submit" class="btn"
-                        style="width: 100%; padding: 15px; margin-top: 10px;">Login</button>
+                    <button type="submit" class="btn mt-20" style="width: 100%; padding: 18px;">Login</button>
                 </form>
-                <div class="auth-toggle" style="text-align: center; margin-top: 20px;">
+                <div class="auth-toggle text-center mt-30">
                     Don't have an account? <a href="#" id="show-signup"
-                        style="color: var(--accent-color); font-weight: 600;">Sign Up</a>
+                        style="color: var(--accent-color); font-weight: 700;">Sign Up</a>
                 </div>
             </div>
             <div id="signup-form" style="display: none;">
-                <div class="auth-header">
+                <div class="auth-header text-center mb-40">
                     <h2>Sign Up</h2>
                     <p>Create your NILA BAKES account</p>
                 </div>
@@ -335,50 +347,30 @@
                         <label>Password</label>
                         <input type="password" class="form-control" placeholder="••••••••" required>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">Sign Up</button>
+                    <button type="submit" class="btn mt-20" style="width: 100%; padding: 18px;">Sign Up</button>
                 </form>
-                <div class="auth-toggle" style="text-align: center; margin-top: 20px;">
+                <div class="auth-toggle text-center mt-30">
                     Already have an account? <a href="#" id="show-login"
-                        style="color: var(--accent-color); font-weight: 600;">Login</a>
+                        style="color: var(--accent-color); font-weight: 700;">Login</a>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="signup-form" style="display: none;">
-        <div class="auth-header">
-            <h2>Sign Up</h2>
-            <p>Create your NILA BAKES account</p>
-        </div>
-        <form action="#">
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" class="form-control" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="example@email.com" required>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" placeholder="••••••••" required>
-            </div>
-            <button type="submit" class="btn" style="width: 100%; padding: 15px;">Sign Up</button>
-        </form>
-        <div class="auth-toggle" style="text-align: center; margin-top: 20px;">
-            Already have an account? <a href="#" id="show-login"
-                style="color: var(--accent-color); font-weight: 600;">Login</a>
-        </div>
-    </div>
-    </div>
     </div>
 
     <script src="script.js"></script>
     <div class="scroll-nav">
         <button class="scroll-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+            </svg>
         </button>
-        <button class="scroll-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" aria-label="Scroll to bottom">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        <button class="scroll-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})"
+            aria-label="Scroll to bottom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
         </button>
     </div>
 </body>

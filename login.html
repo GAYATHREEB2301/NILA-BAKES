@@ -20,10 +20,10 @@
         }
 
         .auth-container {
-            max-width: 450px;
+            max-width: 500px;
             margin: auto;
             background: white;
-            padding: 50px 40px;
+            padding: 60px 50px;
             border-radius: 30px;
             box-shadow: var(--shadow);
             width: 90%;
@@ -106,7 +106,7 @@
         <div class="auth-container">
             <!-- Login Form -->
             <div id="login-form">
-                <div class="auth-header">
+                <div class="auth-header text-center mb-40">
                     <h2>Login</h2>
                     <p>Login to your NILA BAKES account</p>
                 </div>
@@ -119,19 +119,21 @@
                         <label>Password</label>
                         <input type="password" class="form-control" placeholder="••••••••" required>
                     </div>
-                    <div style="text-align: right; margin-bottom: 20px;">
-                        <a href="#" style="font-size: 0.8rem; color: var(--text-muted);">Forgot Password?</a>
+                    <div class="mb-30" style="text-align: right;">
+                        <a href="#" style="font-size: 0.85rem; color: var(--accent-color); font-weight: 600;">Forgot
+                            Password?</a>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">Login</button>
+                    <button type="submit" class="btn mt-10" style="width: 100%; padding: 18px;">Login</button>
                 </form>
-                <div class="auth-toggle">
-                    Don't have an account? <a href="#" id="show-signup">Sign Up</a>
+                <div class="auth-toggle text-center mt-30">
+                    Don't have an account? <a href="#" id="show-signup"
+                        style="color: var(--accent-color); font-weight: 700;">Sign Up</a>
                 </div>
             </div>
 
             <!-- Signup Form -->
-            <div id="signup-form">
-                <div class="auth-header">
+            <div id="signup-form" style="display: none;">
+                <div class="auth-header text-center mb-40">
                     <h2>Create Account</h2>
                     <p>Join the NILA BAKES family</p>
                 </div>
@@ -152,10 +154,11 @@
                         <label>Confirm Password</label>
                         <input type="password" class="form-control" placeholder="••••••••" required>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%; padding: 15px;">Sign Up</button>
+                    <button type="submit" class="btn mt-10" style="width: 100%; padding: 18px;">Sign Up</button>
                 </form>
-                <div class="auth-toggle">
-                    Already have an account? <a href="#" id="show-login">Login</a>
+                <div class="auth-toggle text-center mt-30">
+                    Already have an account? <a href="#" id="show-login"
+                        style="color: var(--accent-color); font-weight: 700;">Login</a>
                 </div>
             </div>
         </div>
@@ -166,10 +169,17 @@
     <script src="script.js"></script>
     <div class="scroll-nav">
         <button class="scroll-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+            </svg>
         </button>
-        <button class="scroll-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" aria-label="Scroll to bottom">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        <button class="scroll-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})"
+            aria-label="Scroll to bottom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
         </button>
     </div>
 </body>
