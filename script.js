@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sticky Header on Scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.classList.add('sticky');
+            header.classList.add('scrolled');
         } else {
-            header.classList.remove('sticky');
+            header.classList.remove('scrolled');
         }
     });
 

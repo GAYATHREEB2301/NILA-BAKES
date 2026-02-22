@@ -199,28 +199,35 @@ img {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 800;
     color: var(--accent-color);
     font-family: 'Playfair Display', serif;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    line-height: normal;
 }
 
 .logo-icon {
-    width: 45px;
-    height: 45px;
-    background: var(--primary-color);
-    border-radius: 12px;
+    height: 1.7rem;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.3);
-    color: white;
+    color: var(--accent-color);
+    flex-shrink: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.logo-icon svg {
+    height: 100%;
+    width: auto;
 }
 
 [data-theme="dark"] .logo-icon {
-    background: var(--accent-color);
-    color: var(--background);
+    background: transparent;
+    color: var(--accent-color);
 }
 
 /* Header & Nav */
@@ -235,6 +242,8 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
 }
 
 [data-theme="dark"] header {
@@ -276,6 +285,12 @@ header.scrolled {
     display: flex;
     gap: 20px;
     align-items: center;
+}
+
+.header-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .theme-toggle {
@@ -433,7 +448,14 @@ header.scrolled {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* Robust Header Offset */
+main {
+    padding-top: var(--header-height);
+    min-height: calc(100vh - 80px);
+    /* Fill remaining space */
+}
+
+/* Hero Section Adjustments */
 .hero {
     height: 60vh;
     display: flex;
@@ -442,19 +464,12 @@ header.scrolled {
     text-align: center;
     position: relative;
     overflow: hidden;
-    margin-top: var(--header-height);
+    /* Hero is now already pushed down by main padding-top */
     background: transparent !important;
 }
 
-/* Add padding to main to account for fixed header */
-main {
-    padding-top: 0;
-}
-
-/* If no hero, add padding-top */
-body:not(:has(.hero)) main {
-    padding-top: var(--header-height);
-}
+/* If the page has a hero, we might want it to start from the top for full-bleed effect, 
+   but the user said "no content overlapping header", so we keep it below. */
 
 .hero-overlay {
     position: absolute;
@@ -571,7 +586,7 @@ section {
 .card-title {
     font-size: 1.25rem;
     margin-bottom: 10px;
-    color: red;
+    color: var(--text-color);
 }
 
 .card-price {
@@ -800,6 +815,35 @@ footer {
 
     .hamburger {
         display: flex;
+        order: 3;
+    }
+
+    .header-right-actions {
+        order: 2;
+        gap: 10px;
+    }
+
+    .logo {
+        order: 1;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 100px 30px 50px;
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
     }
 
     .nav-item {
@@ -814,9 +858,10 @@ footer {
         font-size: 1rem;
     }
 
-    .nav-item:has(.theme-toggle) {
-        border-bottom: none;
-        padding: 20px 0;
+    .nav-item:has(.theme-toggle),
+    .nav-item:has(.btn) {
+        display: none;
+        /* Hide these in mobile menu since they are in header-right-actions */
     }
 
     [data-theme="dark"] .nav-menu {
@@ -838,7 +883,29 @@ footer {
     }
 
     .hero {
-        height: 60vh;
+        height: 50vh;
+        /* Slightly smaller on mobile */
+    }
+
+    .header-right-actions .btn {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .logo-icon {
+        height: 1.3rem;
+        width: auto;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .logo-icon svg {
+        height: 100%;
+        width: auto;
     }
 }
 
@@ -859,4 +926,58 @@ footer {
 
 .about-page section {
     text-align: center;
+}
+
+/* Feature & Mission Grids */
+.feature-grid,
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: stretch;
+    /* Ensures all cards in a row have equal height */
+}
+
+.feature-grid .card,
+.mission-grid .card {
+    padding: 50px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.feature-title {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.mission-grid h3 {
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    font-size: 1.8rem;
+}
+
+.feature-grid p,
+.mission-grid p {
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+
+    .feature-grid,
+    .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .feature-grid .card,
+    .mission-grid .card {
+        padding: 40px 30px;
+    }
 }

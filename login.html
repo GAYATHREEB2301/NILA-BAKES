@@ -23,56 +23,18 @@
             max-width: 450px;
             margin: auto;
             background: white;
-            padding: 40px;
+            padding: 50px 40px;
             border-radius: 30px;
             box-shadow: var(--shadow);
             width: 90%;
-            margin-top: 120px;
-            margin-bottom: 50px;
+            margin-top: 60px;
+            /* Reduced since main has padding-top now */
+            margin-bottom: 60px;
         }
 
-        .auth-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .auth-header h2 {
-            font-size: 2rem;
-            color: var(--accent-color);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ffd1dc;
-            border-radius: 12px;
-            font-family: inherit;
-        }
-
-        .auth-toggle {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-
-        .auth-toggle a {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        #signup-form {
-            display: none;
+        [data-theme="dark"] .auth-container {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
@@ -82,7 +44,18 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><circle cx="7" cy="4" r=".5" fill="currentColor"/><circle cx="12" cy="4" r=".5" fill="currentColor"/><circle cx="17" cy="4" r=".5" fill="currentColor"/></svg></div>
+                <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
+                        <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
+                        <path d="M2 21h20" />
+                        <path d="M7 8v3" />
+                        <path d="M12 8v3" />
+                        <path d="M17 8v3" />
+                        <circle cx="7" cy="4" r=".5" fill="currentColor" />
+                        <circle cx="12" cy="4" r=".5" fill="currentColor" />
+                        <circle cx="17" cy="4" r=".5" fill="currentColor" />
+                    </svg></div>
                 <span>NILA BAKES</span>
             </a>
             <nav>
@@ -115,17 +88,17 @@
                     <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li class="nav-item">
-                        <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                            </svg>
-                        </button>
-                    </li>
                 </ul>
             </nav>
-            <div class="hamburger"><span></span><span></span><span></span></div>
+            <div class="header-right-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </div>
         </div>
     </header>
 
@@ -194,8 +167,3 @@
 </body>
 
 </html>
-
-
-
-
-
