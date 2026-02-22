@@ -696,14 +696,93 @@ footer {
 }
 
 .form-control {
+    width: 100%;
+    padding: 15px 20px;
     background: var(--white);
     color: var(--text-color);
     border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    letter-spacing: 0.3px;
 }
 
 [data-theme="dark"] .form-control {
     background: #222;
     border-color: #444;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(217, 160, 160, 0.1);
+}
+
+.auth-header {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.auth-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.auth-toggle {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Floating Navigation Arrows */
+.scroll-nav {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.scroll-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: none;
+    outline: none;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+.scroll-btn svg {
+    width: 24px;
+    height: 24px;
 }
 
 /* Why Choose Us Blending */
