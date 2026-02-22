@@ -150,4 +150,206 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- CART FUNCTIONALITY ---
+    let cart = JSON.parse(localStorage.getItem('nila_cart')) || [];
+
+    // Inject Cart Toggle into Header
+    const headerActions = document.querySelector('.header-right-actions');
+    if (headerActions) {
+        const cartToggleHTML = `
+            <button id="cart-toggle" class="cart-toggle" title="View Cart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span class="cart-count">0</span>
+            </button>
+        `;
+        headerActions.insertAdjacentHTML('afterbegin', cartToggleHTML);
+    }
+
+    // Inject Cart Sidebar into Body
+    const sidebarHTML = `
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Sweet Cart</h3>
+                <span class="cart-close" id="cart-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Items will be injected here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">₹0</span>
+                </div>
+                <div class="promo-section" style="margin-bottom: 20px;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="promo-code" placeholder="Coupon Code" class="form-control" style="padding: 10px; font-size: 0.8rem;">
+                        <button class="btn" id="apply-promo" style="padding: 10px 15px; font-size: 0.8rem;">Apply</button>
+                    </div>
+                </div>
+                <a href="checkout.html" class="btn checkout-btn">Proceed to Checkout</a>
+            </div>
+        </div>
+        <div class="order-overlay" id="order-overlay">
+            <div class="order-modal">
+                <div style="color: #4CAF50; font-size: 4rem; margin-bottom: 20px;">✓</div>
+                <h2 style="margin-bottom: 15px;">Order Placed!</h2>
+                <p style="margin-bottom: 30px;">Your delicious treats are being prepared. You'll receive a confirmation email shortly.</p>
+                <button class="btn" onclick="window.location.href='index.html'">Great!</button>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', sidebarHTML);
+
+    const cartToggle = document.getElementById('cart-toggle');
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    const cartClose = document.getElementById('cart-close');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartSubtotalEl = document.getElementById('cart-subtotal');
+    const cartCountEl = document.querySelector('.cart-count');
+
+    const toggleCart = () => cartSidebar.classList.toggle('active');
+
+    if (cartToggle) cartToggle.addEventListener('click', toggleCart);
+    if (cartClose) cartClose.addEventListener('click', toggleCart);
+
+    const formatPrice = (price) => {
+        return '₹' + price.toLocaleString('en-IN');
+    };
+
+    const updateCartUI = () => {
+        if (!cartItemsContainer) return;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<div style="text-align: center; margin-top: 50px; opacity: 0.5;">Your cart is empty</div>';
+        } else {
+            cartItemsContainer.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">${formatPrice(item.price)}</div>
+                        <div class="cart-item-controls">
+                            <button class="qty-btn" onclick="window.updateQty(${index}, -1)">-</button>
+                            <span>${item.qty}</span>
+                            <button class="qty-btn" onclick="window.updateQty(${index}, 1)">+</button>
+                            <button class="qty-btn" style="border: none; color: #ff4d4d; margin-left: auto;" onclick="window.removeFromCart(${index})">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        if (cartSubtotalEl) cartSubtotalEl.textContent = formatPrice(total);
+
+        if (cartCountEl) {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCountEl.textContent = count;
+            cartCountEl.style.display = count > 0 ? 'flex' : 'none';
+        }
+
+        localStorage.setItem('nila_cart', JSON.stringify(cart));
+    };
+
+    window.addToCart = (name, price, img) => {
+        // Handle string prices with currency symbol and commas
+        if (typeof price === 'string') {
+            price = parseInt(price.replace(/[₹,]/g, ''));
+        }
+
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.qty++;
+        } else {
+            cart.push({ name, price, img, qty: 1 });
+        }
+        updateCartUI();
+        if (!cartSidebar.classList.contains('active')) toggleCart();
+    };
+
+    window.updateQty = (index, change) => {
+        cart[index].qty += change;
+        if (cart[index].qty < 1) {
+            cart.splice(index, 1);
+        }
+        updateCartUI();
+    };
+
+    window.removeFromCart = (index) => {
+        cart.splice(index, 1);
+        updateCartUI();
+    };
+
+    // Global click listener for Add to Cart buttons
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn') && (e.target.textContent === 'Add to Cart' || e.target.textContent === 'Order Now')) {
+            const card = e.target.closest('.card');
+            if (card) {
+                const nameEl = card.querySelector('.card-title');
+                const priceEl = card.querySelector('.card-price');
+                const imgEl = card.querySelector('.card-img img');
+
+                if (nameEl && priceEl && imgEl) {
+                    e.preventDefault();
+                    window.addToCart(nameEl.textContent, priceEl.textContent, imgEl.src);
+                }
+            }
+        }
+    });
+
+    updateCartUI();
+
+    // --- CHECKOUT PAGE LOGIC ---
+    if (window.location.pathname.includes('checkout.html')) {
+        const orderSummary = document.getElementById('order-summary-items');
+        const checkoutTotal = document.getElementById('checkout-total');
+
+        if (orderSummary) {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const delivery = subtotal > 0 ? 50 : 0;
+            const total = subtotal + delivery;
+
+            orderSummary.innerHTML = cart.map(item => `
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    <span>${item.name} x ${item.qty}</span>
+                    <span>${formatPrice(item.price * item.qty)}</span>
+                </div>
+            `).join('') + `
+                <div style="border-top: 1px solid var(--primary-light); margin-top: 15px; padding-top: 15px; display: flex; justify-content: space-between;">
+                    <span>Delivery Fee</span>
+                    <span>${formatPrice(delivery)}</span>
+                </div>
+            `;
+            if (checkoutTotal) checkoutTotal.textContent = formatPrice(total);
+        }
+
+        const checkoutForm = document.getElementById('checkout-form');
+        if (checkoutForm) {
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const overlay = document.getElementById('order-overlay');
+                if (overlay) overlay.classList.add('active');
+                cart = [];
+                updateCartUI();
+            });
+        }
+
+        // Payment Option Toggle
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        paymentOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                paymentOptions.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+            });
+        });
+    }
 });

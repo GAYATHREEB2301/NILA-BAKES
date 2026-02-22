@@ -19,22 +19,12 @@
             margin-top: 60px;
         }
 
-        /* Solid Black Background specifically for Contact Page */
-        body.bg-contact {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-        }
-
-        body.bg-contact::before,
-        body.bg-contact::after {
-            display: none !important;
-        }
-
         .contact-info-box {
-            background: rgba(255, 255, 255, 0.05) !important;
+            background: var(--card-bg) !important;
             padding: 50px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--primary-light);
+            box-shadow: var(--shadow);
         }
 
         .info-item {
@@ -42,53 +32,60 @@
         }
 
         .info-item h4 {
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
 
         .info-item p {
-            color: rgba(255, 255, 255, 0.8) !important;
+            color: var(--text-color) !important;
             line-height: 1.8;
             font-size: 1.05rem;
         }
 
         .contact-form-box {
-            background: rgba(255, 255, 255, 0.03) !important;
+            background: var(--card-bg) !important;
             padding: 50px;
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary-light);
+            box-shadow: var(--shadow);
         }
 
         .section-header h2 {
-            color: #ffffff !important;
+            color: var(--text-color) !important;
         }
 
         .section-header p {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: var(--text-muted) !important;
         }
 
         .form-group label {
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--text-color);
             margin-bottom: 12px;
             display: block;
+            font-weight: 600;
         }
 
         .form-control {
             width: 100%;
             padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.05) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            color: #ffffff !important;
+            background: var(--background) !important;
+            border: 1px solid var(--primary-color) !important;
+            color: var(--text-color) !important;
             border-radius: 12px;
             font-family: inherit;
             font-size: 1rem;
             transition: var(--transition);
         }
 
+        [data-theme="dark"] .form-control {
+            background: #1a1a1a !important;
+            border-color: #333 !important;
+        }
+
         .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-muted);
+            opacity: 0.6;
         }
 
         @media (max-width: 992px) {
@@ -128,7 +125,7 @@
                             <li class="dropdown-item"><a href="cakes.html">Cakes</a></li>
                             <li class="dropdown-item"><a href="pastries.html">Pastries</a></li>
                             <li class="dropdown-item"><a href="cupcakes.html">Cup Cakes</a></li>
-                            <li class="dropdown-item"><a href="mugcakes.html">Mug Cakes</a></li>
+
                             <li class="dropdown-item"><a href="brownies.html">Brownies</a></li>
                             <li class="dropdown-item"><a href="themecakes.html">Theme Cakes</a></li>
                             <li class="dropdown-item"><a href="eggless.html">Eggless Cakes</a></li>
@@ -138,7 +135,7 @@
                         <a href="occasions.html" class="nav-link">Occasions ▼</a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item"><a href="birthday.html">Birthday</a></li>
-                            <li class="dropdown-item"><a href="parties.html">Parties</a></li>
+
                             <li class="dropdown-item"><a href="anniversary.html">Anniversary</a></li>
                             <li class="dropdown-item"><a href="babyshower.html">Baby Shower</a></li>
                         </ul>

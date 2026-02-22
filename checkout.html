@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | NILA BAKES</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-checkout">
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
+                        <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
+                        <path d="M2 21h20" />
+                        <path d="M7 8v3" />
+                        <path d="M12 8v3" />
+                        <path d="M17 8v3" />
+                        <circle cx="7" cy="4" r=".5" fill="currentColor" />
+                        <circle cx="12" cy="4" r=".5" fill="currentColor" />
+                        <circle cx="17" cy="4" r=".5" fill="currentColor" />
+                    </svg></div>
+                <span>NILA BAKES</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item">
+                        <a href="menu.html" class="nav-link">Menu ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="cakes.html">Cakes</a></li>
+                            <li class="dropdown-item"><a href="pastries.html">Pastries</a></li>
+                            <li class="dropdown-item"><a href="cupcakes.html">Cup Cakes</a></li>
+                            <li class="dropdown-item"><a href="brownies.html">Brownies</a></li>
+                            <li class="dropdown-item"><a href="themecakes.html">Theme Cakes</a></li>
+                            <li class="dropdown-item"><a href="eggless.html">Eggless Cakes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="occasions.html" class="nav-link">Occasions ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="birthday.html">Birthday</a></li>
+                            <li class="dropdown-item"><a href="anniversary.html">Anniversary</a></li>
+                            <li class="dropdown-item"><a href="babyshower.html">Baby Shower</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="customize.html" class="nav-link">Customize</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-right-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="checkout-container">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Complete Your Order</h2>
+                    <p>Almost there! Please provide your delivery and payment details.</p>
+                </div>
+
+                <div class="checkout-grid">
+                    <!-- Delivery Form -->
+                    <div class="checkout-card">
+                        <h3 class="checkout-section-title">Delivery Details</h3>
+                        <form id="checkout-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" placeholder="John" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Delivery Address</label>
+                                <textarea class="form-control" rows="3" placeholder="Apartment, Street, Area"
+                                    required></textarea>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" class="form-control" value="Chennai" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label>Pincode</label>
+                                    <input type="text" class="form-control" placeholder="600001" required>
+                                </div>
+                            </div>
+
+                            <h3 class="checkout-section-title mt-30">Payment Method</h3>
+                            <div class="payment-options">
+                                <div class="payment-option active" data-method="upi">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" style="margin-bottom:10px;">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path>
+                                    </svg>
+                                    <div>UPI</div>
+                                </div>
+                                <div class="payment-option" data-method="card">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" style="margin-bottom:10px;">
+                                        <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                                        <line x1="2" y1="10" x2="22" y2="10"></line>
+                                    </svg>
+                                    <div>Card</div>
+                                </div>
+                                <div class="payment-option" data-method="cod">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" style="margin-bottom:10px;">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                    <div>COD</div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn checkout-btn mt-40" style="padding: 20px;">Place Order
+                                Now</button>
+                        </form>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="checkout-card" style="height: fit-content;">
+                        <h3 class="checkout-section-title">Order Summary</h3>
+                        <div id="order-summary-items" class="mb-30">
+                            <!-- Items from JS -->
+                        </div>
+
+                        <div class="promo-section mb-30">
+                            <label class="mb-10 d-block" style="font-weight:600; font-size: 0.9rem;">Have a
+                                Coupon?</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" placeholder="Enter Code" class="form-control" style="padding: 12px;">
+                                <button class="btn" style="padding: 12px 20px; font-size: 0.9rem;">Apply</button>
+                            </div>
+                        </div>
+
+                        <div style="border-top: 2px solid var(--primary-color); padding-top: 20px;">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: 800; color: var(--accent-color);">
+                                <span>Total Amount</span>
+                                <span id="checkout-total">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
+                            <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
+                            <path d="M2 21h20" />
+                            <path d="M7 8v3" />
+                            <path d="M12 8v3" />
+                            <path d="M17 8v3" />
+                            <circle cx="7" cy="4" r=".5" fill="currentColor" />
+                            <circle cx="12" cy="4" r=".5" fill="currentColor" />
+                            <circle cx="17" cy="4" r=".5" fill="currentColor" />
+                        </svg></div>
+                    <span>NILA BAKES</span>
+                </div>
+                <p>Handcrafted with love, shared with joy.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="blog.html">Read Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

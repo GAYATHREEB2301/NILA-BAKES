@@ -43,7 +43,7 @@
                             <li class="dropdown-item"><a href="cakes.html">Cakes</a></li>
                             <li class="dropdown-item"><a href="pastries.html">Pastries</a></li>
                             <li class="dropdown-item"><a href="cupcakes.html">Cup Cakes</a></li>
-                            <li class="dropdown-item"><a href="mugcakes.html">Mug Cakes</a></li>
+
                             <li class="dropdown-item"><a href="brownies.html">Brownies</a></li>
                             <li class="dropdown-item"><a href="themecakes.html">Theme Cakes</a></li>
                             <li class="dropdown-item"><a href="eggless.html">Eggless Cakes</a></li>
@@ -53,7 +53,7 @@
                         <a href="occasions.html" class="nav-link">Occasions ▼</a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item"><a href="birthday.html">Birthday</a></li>
-                            <li class="dropdown-item"><a href="parties.html">Parties</a></li>
+
                             <li class="dropdown-item"><a href="anniversary.html">Anniversary</a></li>
                             <li class="dropdown-item"><a href="babyshower.html">Baby Shower</a></li>
                         </ul>
@@ -83,7 +83,7 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero pb-0">
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1>Crafting Sweet Moments</h1>
@@ -92,7 +92,7 @@
             </div>
         </section>
 
-        <section id="introduction">
+        <section id="introduction" class="pt-0">
             <div class="container text-center max-w-900">
                 <h2 class="text-accent mb-30" style="font-size: clamp(2rem, 5vw, 3rem);">Baking Emotions, One Cake at a
                     Time</h2>
@@ -182,8 +182,9 @@
 
         <section id="special-offer" style="background-color: var(--primary-light);">
             <div class="container">
-                <div style="display: flex; align-items: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px;">
+                <div
+                    style="display: flex; align-items: center; justify-content: center; gap: clamp(30px, 5vw, 80px); flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; text-align: center;">
                         <h2 class="mb-20" style="font-size: clamp(2rem, 4vw, 3rem);">Weekend Sweetness Awaits!</h2>
                         <p class="f-lg mb-30">Get a <strong>FREE set of 4 Cupcakes</strong>
                             on all orders above ₹2,499 placed this Friday. Use code: <strong>SWEETWEEKEND</strong></p>
@@ -365,13 +366,7 @@
                 <path d="m18 15-6-6-6 6" />
             </svg>
         </button>
-        <button class="scroll-btn" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})"
-            aria-label="Scroll to bottom">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="m6 9 6 6 6-6" />
-            </svg>
-        </button>
+
     </div>
 </body>
 

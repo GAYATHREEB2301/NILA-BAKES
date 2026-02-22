@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .blog-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 30px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid #fff0f5;
+            border: 1px solid var(--primary-light);
         }
 
         .blog-card:hover {
@@ -44,6 +44,7 @@
 
         .blog-content {
             padding: 40px;
+            text-align: center;
         }
 
         .blog-date {
@@ -53,6 +54,7 @@
             margin-bottom: 15px;
             display: block;
             letter-spacing: 1px;
+            text-align: center;
         }
 
         .blog-title {
@@ -60,13 +62,16 @@
             margin-bottom: 20px;
             font-family: 'Playfair Display', serif;
             line-height: 1.4;
+            text-align: center;
+            color: var(--text-color);
         }
 
         .blog-excerpt {
             font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 0;
+            line-height: 1.8;
+            text-align: center;
         }
     </style>
 </head>
@@ -99,7 +104,7 @@
                             <li class="dropdown-item"><a href="cakes.html">Cakes</a></li>
                             <li class="dropdown-item"><a href="pastries.html">Pastries</a></li>
                             <li class="dropdown-item"><a href="cupcakes.html">Cup Cakes</a></li>
-                            <li class="dropdown-item"><a href="mugcakes.html">Mug Cakes</a></li>
+
                             <li class="dropdown-item"><a href="brownies.html">Brownies</a></li>
                             <li class="dropdown-item"><a href="themecakes.html">Theme Cakes</a></li>
                             <li class="dropdown-item"><a href="eggless.html">Eggless Cakes</a></li>
@@ -109,7 +114,7 @@
                         <a href="occasions.html" class="nav-link">Occasions ▼</a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-item"><a href="birthday.html">Birthday</a></li>
-                            <li class="dropdown-item"><a href="parties.html">Parties</a></li>
+
                             <li class="dropdown-item"><a href="anniversary.html">Anniversary</a></li>
                             <li class="dropdown-item"><a href="babyshower.html">Baby Shower</a></li>
                         </ul>
@@ -139,7 +144,7 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero pb-0">
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <h1>The Sweet Blog</h1>
@@ -147,31 +152,35 @@
             </div>
         </section>
 
-        <section id="blog-posts">
+        <section id="blog-posts" class="pt-0">
             <div class="container">
                 <div class="grid">
                     <div class="blog-card">
                         <div class="blog-img"><img
-                                src="https://images.unsplash.com/photo-1571506191039-b91aa9599573?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                src="https://images.pexels.com/photos/10510747/pexels-photo-10510747.jpeg"
                                 alt="Baking Tips"></div>
                         <div class="blog-content">
                             <span class="blog-date">FEB 15, 2026</span>
                             <h3 class="blog-title">5 Secrets to Perfectly Moist Cakes</h3>
                             <p class="blog-excerpt">Discover our top tips for ensuring your home-baked cakes are always
-                                moist and delicious.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                moist and delicious. From choosing the right room-temperature ingredients to mastering
+                                the folding technique, we reveal the professional secrets used in our kitchen to achieve
+                                that perfect crumb every time. Learn why moisture control is the key to lasting
+                                freshness.</p>
                         </div>
                     </div>
                     <div class="blog-card">
                         <div class="blog-img"><img
-                                src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                                alt="Trends"></div>
+                                src="https://images.pexels.com/photos/7666514/pexels-photo-7666514.jpeg" alt="Trends">
+                        </div>
                         <div class="blog-content">
                             <span class="blog-date">FEB 10, 2026</span>
                             <h3 class="blog-title">Wedding Cake Trends for 2026</h3>
                             <p class="blog-excerpt">From minimalist designs to floral explosions, see what's trending
-                                this wedding season.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                this wedding season. We explore the shift toward natural textures, edible gold leaf
+                                accents, and unique flavor profiles like lavender lemon and salted caramel. Our expert
+                                designers share insights on how to choose a centerpiece that reflects your personality
+                                while staying modern.</p>
                         </div>
                     </div>
                     <div class="blog-card">
@@ -182,8 +191,10 @@
                             <span class="blog-date">FEB 05, 2026</span>
                             <h3 class="blog-title">Our Chef's Special Chocolate Story</h3>
                             <p class="blog-excerpt">The journey of sourcing the finest Belgian chocolate for our
-                                signature cakes.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                signature cakes. We take you behind the scenes of our supply chain, highlighting the
+                                sustainable practices and the unique cocoa blends that give our chocolate cakes their
+                                unmatched richness. Discover why quality ingredients are the foundation of every
+                                masterpiece we create.</p>
                         </div>
                     </div>
                     <div class="blog-card">
@@ -194,8 +205,10 @@
                             <span class="blog-date">JAN 28, 2026</span>
                             <h3 class="blog-title">How to Decorate with Fresh Flowers</h3>
                             <p class="blog-excerpt">Learn which flowers are food-safe and how to arrange them
-                                beautifully on your cakes.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                beautifully on your cakes. Using nature's beauty requires careful selection and
+                                preparation. We guide you through the process of cleaning, sealing stems, and creating
+                                stunning floral cascades that turn a simple cake into a breathtaking garden-inspired
+                                work of art.</p>
                         </div>
                     </div>
                     <div class="blog-card">
@@ -206,8 +219,10 @@
                             <span class="blog-date">JAN 20, 2026</span>
                             <h3 class="blog-title">Seasonal Flavors: Spring Edition</h3>
                             <p class="blog-excerpt">Exploring lemon zest, lavender, and floral notes in our upcoming
-                                spring collection.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                spring collection. Our bakers are experimenting with light, refreshing combinations that
+                                capture the essence of the season. From zesty citrus infusions to delicate herbal
+                                undertones, discover the vibrant flavors that will define our menu as the flowers start
+                                to bloom.</p>
                         </div>
                     </div>
                     <div class="blog-card">
@@ -218,21 +233,24 @@
                             <span class="blog-date">JAN 15, 2026</span>
                             <h3 class="blog-title">Proper Cake Storage Guide</h3>
                             <p class="blog-excerpt">Make your celebrations last longer with our guide on how to store
-                                different types of cakes.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                different types of cakes. Whether it's a fondant-covered masterpiece or a fresh cream
+                                delight, knowing the right temperature and container can preserve that 'just-baked'
+                                taste. We provide practical tips on refrigeration, freezing, and avoiding common storage
+                                mistakes.</p>
                         </div>
                     </div>
                     <!-- New Posts -->
                     <div class="blog-card">
                         <div class="blog-img"><img
-                                src="https://images.unsplash.com/photo-1587899831656-4b8275abe344?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                src="https://images.pexels.com/photos/18054977/pexels-photo-18054977.jpeg"
                                 alt="Bento Cakes"></div>
                         <div class="blog-content">
                             <span class="blog-date">JAN 08, 2026</span>
                             <h3 class="blog-title">The Rise of Bento Cakes</h3>
                             <p class="blog-excerpt">Small, cute, and perfect for intimate celebrations. Why bento cakes
-                                are taking over.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                are taking over. These miniature treats offer the perfect balance of portion control and
+                                creative expression. We discuss the cultural origins of bento cakes and why they have
+                                become the go-to choice for small gestures, anniversaries, and personal victories.</p>
                         </div>
                     </div>
                     <div class="blog-card">
@@ -243,8 +261,10 @@
                             <span class="blog-date">JAN 02, 2026</span>
                             <h3 class="blog-title">Mastering the Art of Eggless Baking</h3>
                             <p class="blog-excerpt">Switching to eggless doesn't mean losing fluffiness. Here is our
-                                guide to perfect substitutions.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                guide to perfect substitutions. We explore the science of binders and leavening agents
+                                that provide the same lift and moisture as traditional recipes. Our master bakers share
+                                their favorite ingredients for creating rich, indulgent treats that everyone can enjoy
+                                regardless of dietary preference.</p>
                         </div>
                     </div>
                     <div class="blog-card">
@@ -255,8 +275,10 @@
                             <span class="blog-date">DEC 20, 2025</span>
                             <h3 class="blog-title">Designing Your Dream Custom Cake</h3>
                             <p class="blog-excerpt">Step-by-step walkthrough of our customization process from sketch to
-                                sugar craft.</p>
-                            <a href="#" class="btn btn-outline">Read More</a>
+                                sugar craft. We believe every cake should tell a story. From the initial consultation
+                                where we capture your vision to the final hand-painted details, see how our artisans
+                                bring complex designs to life through dedication, passion, and attention to every single
+                                detail.</p>
                         </div>
                     </div>
                 </div>
