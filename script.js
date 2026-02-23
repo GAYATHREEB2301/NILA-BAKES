@@ -441,18 +441,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             e.preventDefault();
-            document.body.classList.add('page-exit');
+            const mainContent = document.querySelector('main');
+            if (mainContent) {
+                mainContent.classList.add('page-exit');
+            }
 
             setTimeout(() => {
                 window.location.href = href;
-            }, 250); // Matches the pageFadeOut CSS duration with a small buffer
+            }, 400); // Matches the contentFadeOut CSS duration
         });
     });
 
     // Handle back button (on pageshow, remove page-exit if present)
     window.addEventListener('pageshow', (event) => {
-        if (event.persisted) {
-            document.body.classList.remove('page-exit');
+        const mainContent = document.querySelector('main');
+        if (event.persisted && mainContent) {
+            mainContent.classList.remove('page-exit');
         }
     });
 });

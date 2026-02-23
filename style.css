@@ -41,6 +41,8 @@
 
 html {
     scrollbar-gutter: stable;
+    background-color: #0f0f0f;
+    /* Match the darkest possible theme background */
 }
 
 body {
@@ -52,31 +54,41 @@ body {
     position: relative;
     min-height: 100vh;
     font-weight: 500;
+}
+
+/* Page Content Wrapper for Transitions */
+main {
+    padding-top: var(--header-height);
+    min-height: calc(100vh - 80px);
     opacity: 0;
-    animation: pageFadeIn 0.4s ease-out forwards;
+    animation: contentFadeIn 0.6s ease-out forwards;
 }
 
-body.page-exit {
-    animation: pageFadeOut 0.3s ease-in forwards;
+main.page-exit {
+    animation: contentFadeOut 0.4s ease-in forwards;
 }
 
-@keyframes pageFadeIn {
+@keyframes contentFadeIn {
     from {
         opacity: 0;
+        transform: translateY(10px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@keyframes pageFadeOut {
+@keyframes contentFadeOut {
     from {
         opacity: 1;
+        transform: translateY(0);
     }
 
     to {
         opacity: 0;
+        transform: translateY(-10px);
     }
 }
 
@@ -94,38 +106,7 @@ body::before {
     filter: blur(12px);
     z-index: -2;
     transform: scale(1.1);
-    transition: background-image 0.5s ease;
-}
-
-/* Unique Page Backgrounds */
-/* Page-specific background images */
-body.bg-home::before {
-    background-image: url('https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=1920&q=80');
-}
-
-body.bg-menu::before {
-    background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1920&q=80');
-}
-
-body.bg-occasions::before {
-    background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1920&q=80');
-}
-
-body.bg-about::before,
-body.bg-contact::before {
-    background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1920&q=80');
-}
-
-body.bg-blog::before {
-    background-image: url('https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?auto=format&fit=crop&w=1920&q=80');
-}
-
-body.bg-customize::before {
-    background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1920&q=80');
-}
-
-body.bg-login::before {
-    background-image: url('https://images.unsplash.com/photo-1516054144838-f9474751ac21?auto=format&fit=crop&w=1920&q=80');
+    transition: background-image 0.8s ease-in-out;
 }
 
 body::after {
