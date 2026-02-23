@@ -583,8 +583,10 @@ main {
 }
 
 .hero {
-    min-height: 80vh;
-    /* Increased for a more spacious, centered feel */
+    min-height: 70vh;
+    /* Slightly reduced height for tighter look */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -592,7 +594,14 @@ main {
     position: relative;
     overflow: hidden;
     width: 100%;
-    /* No background here, it shows the body background */
+}
+
+main>section:first-of-type {
+    padding-top: clamp(20px, 4vw, 40px);
+}
+
+main>section.hero:first-of-type {
+    padding-top: 0;
 }
 
 .hero-overlay {
@@ -608,10 +617,9 @@ main {
     position: relative;
     z-index: 2;
     max-width: 850px;
-    padding: 60px 50px;
-    /* Required space inside the box */
+    padding: 40px 30px;
+    /* Reduced from 60px 50px for tighter alignment */
     background: rgba(15, 10, 10, 0.7);
-    /* Dark premium box */
     border-radius: 40px;
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
