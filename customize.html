@@ -41,9 +41,33 @@
             max-width: 900px;
             margin: 0 auto;
             background: white;
-            padding: 60px;
+            padding: 40px 60px;
+            /* Reduced from 60px for tighter feel */
             border-radius: 40px;
             box-shadow: var(--shadow);
+        }
+
+        .surety-box {
+            background: var(--primary-light);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px dashed var(--accent-color);
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .surety-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-style: solid;
+        }
+
+        [data-theme="dark"] .customize-container {
+            background: var(--card-bg);
         }
     </style>
 </head>
@@ -124,7 +148,7 @@
             </div>
         </section>
 
-        <section id="customize-form">
+        <section id="customize-form" style="padding-top: 20px;">
             <div class="container">
                 <div class="customize-container">
                     <div class="section-header" style="margin-bottom: 30px;">
@@ -197,6 +221,18 @@
                                 Cake</button>
                         </div>
                     </form>
+                </div>
+
+                <div class="surety-box mt-40">
+                    <div style="color: var(--accent-color); margin-bottom: 15px;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 10px; font-family: 'Playfair Display', serif;">Customization Surety</h3>
+                    <p class="f-lg" style="color: var(--text-color); font-weight: 500;">We guarantee that your cake will
+                        be crafted exactly as you customize it, with attention to every detail.</p>
                 </div>
             </div>
         </section>
