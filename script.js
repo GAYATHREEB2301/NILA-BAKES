@@ -292,20 +292,39 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('nila_cart', JSON.stringify(cart));
     };
 
-    window.addToCart = (name, price, img) => {
+    // --- TOAST NOTIFICATION ---
+    const showToast = (message) => {
+        let toast = document.querySelector('.toast-notification');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.classList.add('active');
+        setTimeout(() => toast.classList.remove('active'), 3000);
+    };
+
+    window.addToCart = (name, price, img, qty = 1, redirect = false) => {
         // Handle string prices with currency symbol and commas
         if (typeof price === 'string') {
-            price = parseInt(price.replace(/[₹,]/g, ''));
+            price = parseInt(price.replace(/[₹,]/g, '').trim());
         }
 
         const existingItem = cart.find(item => item.name === name);
         if (existingItem) {
-            existingItem.qty++;
+            existingItem.qty += qty;
         } else {
-            cart.push({ name, price, img, qty: 1 });
+            cart.push({ name, price, img, qty: qty });
         }
         updateCartUI();
-        if (!cartSidebar.classList.contains('active')) toggleCart();
+
+        if (redirect) {
+            window.location.href = 'checkout.html';
+        } else {
+            showToast(`${qty} x ${name} added to cart!`);
+            if (!cartSidebar.classList.contains('active')) toggleCart();
+        }
     };
 
     window.updateQty = (index, change) => {
@@ -321,18 +340,37 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartUI();
     };
 
-    // Global click listener for Add to Cart buttons
+    // Global click listener for Add to Cart / Order Now buttons
     document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('btn') && (e.target.textContent === 'Add to Cart' || e.target.textContent === 'Order Now')) {
-            const card = e.target.closest('.card');
+        const btn = e.target.closest('.btn');
+        const qtyMinus = e.target.closest('.qty-minus');
+        const qtyPlus = e.target.closest('.qty-plus');
+
+        if (qtyMinus || qtyPlus) {
+            const selector = e.target.closest('.card-qty-selector');
+            const input = selector.querySelector('.qty-input');
+            let val = parseInt(input.value);
+            if (qtyMinus && val > 1) input.value = val - 1;
+            if (qtyPlus) input.value = val + 1;
+            return;
+        }
+
+        if (!btn) return;
+
+        const text = btn.textContent.trim().toLowerCase();
+        if (text === 'add to cart' || text === 'order now') {
+            const card = btn.closest('.card');
             if (card) {
                 const nameEl = card.querySelector('.card-title');
                 const priceEl = card.querySelector('.card-price');
                 const imgEl = card.querySelector('.card-img img');
+                const qtyInput = card.querySelector('.qty-input');
 
                 if (nameEl && priceEl && imgEl) {
                     e.preventDefault();
-                    window.addToCart(nameEl.textContent, priceEl.textContent, imgEl.src);
+                    const isOrderNow = text === 'order now';
+                    const qty = qtyInput ? parseInt(qtyInput.value) : 1;
+                    window.addToCart(nameEl.textContent.trim(), priceEl.textContent.trim(), imgEl.src, qty, isOrderNow);
                 }
             }
         }
