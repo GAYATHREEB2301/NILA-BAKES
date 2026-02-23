@@ -2,6 +2,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const header = document.querySelector('header');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const dropdownLinks = document.querySelectorAll('.dropdown-item a');
+
+    // Dynamic Active State
+    const currentPath = window.location.pathname.split('/').pop().split('?')[0].split('#')[0] || 'index.html';
+
+    function setActiveLink() {
+        // Clear all active classes first to avoid conflicts with hardcoded ones
+        document.querySelectorAll('.nav-item, .nav-link, .dropdown-item a').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+                link.parentElement.classList.add('active');
+            }
+        });
+
+        dropdownLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+                // Also highlight the parent dropdown menu item's parent nav-item
+                const parentNavItem = link.closest('.nav-item');
+                if (parentNavItem) {
+                    parentNavItem.classList.add('active');
+                }
+            }
+        });
+    }
+
+    setActiveLink();
 
     // Mobile Menu Toggle
     if (hamburger) {
