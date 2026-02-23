@@ -422,4 +422,37 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // --- PAGE TRANSITIONS ---
+    const internalLinks = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])');
+
+    internalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+
+            // Safety checks: skip if no href, if it's external, or if it's a script/modal trigger
+            if (!href ||
+                href.startsWith('http') ||
+                href.startsWith('javascript:') ||
+                link.id === 'login-trigger' ||
+                link.classList.contains('btn') && (link.textContent.toLowerCase().includes('add to cart') || link.textContent.toLowerCase().includes('order now')) ||
+                link.closest('.dropdown-menu') && window.innerWidth <= 992 && link.parentElement.querySelector('.dropdown-menu') // Mobile dropdown parent
+            ) {
+                return;
+            }
+
+            e.preventDefault();
+            document.body.classList.add('fade-out');
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 350); // Slightly less than CSS duration for snappiness
+        });
+    });
+
+    // Handle back button (on pageshow, remove fade-out if present)
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.body.classList.remove('fade-out');
+        }
+    });
 });
