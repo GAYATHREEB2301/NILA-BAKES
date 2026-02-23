@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NILA BAKES | Home 2 – Artisan Cake Studio</title>
+    <meta name="description"
+        content="NILA BAKES – Discover our artisan-crafted cakes. Premium flavours, custom designs and sweet moments, delivered to your door.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =============================================
+           HOME 2 – EXCLUSIVE OVERRIDES & NEW SECTIONS
+           ============================================= */
+
+        /* Override body background for a richer, darker vibe */
+        body.bg-home2::before {
+            background-image: url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1920&q=80');
+            filter: blur(8px) brightness(0.6);
+        }
+
+        body.bg-home2::after {
+            background: rgba(10, 5, 8, 0.72);
+        }
+
+        [data-theme="dark"] body.bg-home2::after {
+            background: rgba(5, 2, 4, 0.82);
+        }
+
+        /* ---- HERO 2 ---- */
+        .hero2 {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 0 !important;
+        }
+
+        .hero2-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 60px 40px;
+            animation: fadeInUp 1s ease;
+            margin: 0 20px;
+        }
+
+        .hero2-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d9a0a0, #ffd1dc);
+            color: #1a1a1a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 8px 22px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+            animation: pulseBadge 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseBadge {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(217, 160, 160, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 14px rgba(217, 160, 160, 0);
+            }
+        }
+
+        .hero2-content h1 {
+            font-size: clamp(3rem, 9vw, 6rem);
+            line-height: 1.05;
+            color: #ffffff !important;
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero2-content h1 span {
+            background: linear-gradient(135deg, #ffd1dc, #d9a0a0, #ffd1dc);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero2-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: rgba(255, 255, 255, 0.82) !important;
+            max-width: 620px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero2-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, #ffd1dc, #d9a0a0);
+            color: #1a1a1a;
+            font-weight: 700;
+            padding: 16px 38px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 24px rgba(217, 160, 160, 0.5);
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(217, 160, 160, 0.7);
+            color: #1a1a1a;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 16px 38px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.7);
+            transform: translateY(-4px);
+            color: #fff;
+        }
+
+        /* Floating decorative circles */
+        .hero2::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(217, 160, 160, 0.18) 0%, transparent 70%);
+            animation: floatOrb 8s ease-in-out infinite;
+        }
+
+        .hero2::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 209, 220, 0.15) 0%, transparent 70%);
+            animation: floatOrb 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatOrb {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---- STATS STRIP ---- */
+        .stats-strip {
+            background: var(--card-bg);
+            border-top: 1px solid var(--primary-light);
+            border-bottom: 1px solid var(--primary-light);
+            padding: 36px 0 !important;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        /* ---- BENTO GRID SECTION ---- */
+        .bento-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+
+        .bento-card {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Large feature card */
+        .bento-large {
+            grid-column: span 7;
+            min-height: 420px;
+            background: linear-gradient(135deg, #2d1a1e, #1a1012);
+        }
+
+        /* Tall card */
+        .bento-tall {
+            grid-column: span 5;
+            min-height: 420px;
+        }
+
+        /* Wide card */
+        .bento-wide {
+            grid-column: span 5;
+            min-height: 260px;
+        }
+
+        /* Regular */
+        .bento-regular {
+            grid-column: span 4;
+            min-height: 260px;
+        }
+
+        /* Small accent */
+        .bento-small {
+            grid-column: span 3;
+            min-height: 260px;
+        }
+
+        .bento-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .bento-card:hover .bento-img {
+            transform: scale(1.06);
+        }
+
+        .bento-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 60%);
+        }
+
+        .bento-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 30px;
+            color: white;
+            z-index: 2;
+        }
+
+        .bento-content .bento-tag {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+
+        .bento-content h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .bento-content p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 16px;
+        }
+
+        .bento-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffd1dc;
+        }
+
+        /* Accent bento card (no image, gradient bg) */
+        .bento-accent-card {
+            background: linear-gradient(135deg, #d9a0a0 0%, #ffd1dc 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .bento-accent-card .accent-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .bento-accent-card h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .bento-accent-card p {
+            font-size: 0.9rem;
+            color: rgba(30, 10, 15, 0.75);
+            line-height: 1.6;
+        }
+
+        /* ---- MARQUEE / TICKER ---- */
+        .ticker-section {
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent-color), #ffd1dc);
+            padding: 18px 0 !important;
+        }
+
+        .ticker-track {
+            display: flex;
+            white-space: nowrap;
+            animation: ticker 28s linear infinite;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
+        .ticker-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(30, 10, 15, 0.4);
+            display: inline-block;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ---- FEATURED COLLECTION (REDESIGNED CARDS) ---- */
+        .collection-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card2 {
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card2:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(217, 160, 160, 0.25);
+        }
+
+        .product-card2-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card2-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card2:hover .product-card2-img img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 50px;
+            z-index: 2;
+        }
+
+        .product-card2-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-card2-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .product-card2-body .desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .product-card2-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .product-card2-footer .price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .btn-cart {
+            background: var(--primary-color);
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-cart:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ---- PROCESS SECTION ---- */
+        .process-section {
+            background: var(--primary-light);
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(217, 160, 160, 0.2);
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #d9a0a0, #ffd1dc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin: 0 auto 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .process-step h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .process-step p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ---- TESTIMONIAL SECTION (REDESIGNED) ---- */
+        .testimonials2-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+
+        .testimonials2-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 0;
+        }
+
+        .testimonial2-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .testimonial2-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(217, 160, 160, 0.2);
+        }
+
+        .testimonial2-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            font-size: 6rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            line-height: 1;
+            opacity: 0.4;
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 18px;
+        }
+
+        .star {
+            color: #f5a623;
+            font-size: 1rem;
+        }
+
+        .testimonial2-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #d9a0a0, #ffd1dc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .reviewer-info h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .reviewer-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ---- CTA BANNER ---- */
+        .cta2-section {
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+
+        .cta2-inner {
+            background: linear-gradient(135deg, #2d1a1e 0%, #1a1012 50%, #2d1a1e 100%);
+            border-radius: 40px;
+            padding: clamp(60px, 8vw, 100px) clamp(30px, 6vw, 80px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta2-inner::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(217, 160, 160, 0.12);
+        }
+
+        .cta2-inner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255, 209, 220, 0.08);
+        }
+
+        .cta2-inner h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #fff;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta2-inner p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta2-inner .btn-glow {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            .bento-large {
+                grid-column: span 12;
+                min-height: 320px;
+            }
+
+            .bento-tall {
+                grid-column: span 12;
+                min-height: 280px;
+            }
+
+            .bento-wide {
+                grid-column: span 12;
+            }
+
+            .bento-regular {
+                grid-column: span 6;
+            }
+
+            .bento-small {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .bento-regular {
+                grid-column: span 12;
+            }
+
+            .bento-small {
+                grid-column: span 12;
+            }
+
+            .hero2-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-home2">
+
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="logo.svg" alt="Logo">
+                </div>
+                <span>NILA BAKES</span>
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <!-- HOME DROPDOWN -->
+                    <li class="nav-item active">
+                        <a href="index.html" class="nav-link">Home ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="index.html">Home 1</a></li>
+                            <li class="dropdown-item"><a href="index2.html" class="active">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menu.html" class="nav-link">Menu ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="cakes.html">Cakes</a></li>
+                            <li class="dropdown-item"><a href="pastries.html">Pastries</a></li>
+                            <li class="dropdown-item"><a href="cupcakes.html">Cup Cakes</a></li>
+                            <li class="dropdown-item"><a href="brownies.html">Brownies</a></li>
+                            <li class="dropdown-item"><a href="themecakes.html">Theme Cakes</a></li>
+                            <li class="dropdown-item"><a href="eggless.html">Eggless Cakes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="occasions.html" class="nav-link">Occasions ▼</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="birthday.html">Birthday</a></li>
+                            <li class="dropdown-item"><a href="anniversary.html">Anniversary</a></li>
+                            <li class="dropdown-item"><a href="babyshower.html">Baby Shower</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="customize.html" class="nav-link">Customize</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right-actions">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="login.html" class="btn" id="login-trigger">Login</a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ====== HERO ====== -->
+        <section class="hero2 pb-0 pt-0">
+            <div class="hero2-content">
+                <div class="hero2-badge">✦ Artisan Cake Studio</div>
+                <h1>Every Bite is a<br><span>Masterpiece</span></h1>
+                <p>We transform the finest ingredients into edible works of art. Your vision, our craftsmanship — the
+                    perfect celebration starts here.</p>
+                <div class="hero2-cta">
+                    <a href="menu.html" class="btn-glow">Explore Our Menu</a>
+                    <a href="customize.html" class="btn-ghost">Create Custom Cake</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== STATS STRIP ====== -->
+        <section class="stats-strip">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Baking</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">120+</div>
+                        <div class="stat-label">Cake Flavours</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== BENTO GRID ====== -->
+        <section class="bento-section">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 50px;">
+                    <h2>Our Sweet Universe</h2>
+                    <p>Explore what makes NILA BAKES truly extraordinary</p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Large Feature Card -->
+                    <div class="bento-card bento-large">
+                        <img class="bento-img"
+                            src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                            alt="Signature Chocolate Cake">
+                        <div class="bento-overlay"></div>
+                        <div class="bento-content">
+                            <span class="bento-tag">Bestseller</span>
+                            <h3>Dark Belgian Chocolate Torte</h3>
+                            <p>Layers of rich ganache and featherlight sponge, finished with hand-piped rosettes.</p>
+                            <span class="bento-price">From ₹2,299</span>
+                        </div>
+                    </div>
+
+                    <!-- Tall Card -->
+                    <div class="bento-card bento-tall">
+                        <img class="bento-img"
+                            src="https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Custom Wedding Cake">
+                        <div class="bento-overlay"></div>
+                        <div class="bento-content">
+                            <span class="bento-tag">Custom</span>
+                            <h3>Bespoke Wedding Tiers</h3>
+                            <p>Your dream design, flawlessly executed.</p>
+                            <span class="bento-price">From ₹4,999</span>
+                        </div>
+                    </div>
+
+                    <!-- Wide Card -->
+                    <div class="bento-card bento-wide">
+                        <img class="bento-img"
+                            src="https://images.pexels.com/photos/4109996/pexels-photo-4109996.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Chocolate Drip Cake">
+                        <div class="bento-overlay"></div>
+                        <div class="bento-content">
+                            <span class="bento-tag">New</span>
+                            <h3>Signature Chocolate Dream</h3>
+                            <span class="bento-price">₹2,299</span>
+                        </div>
+                    </div>
+
+                    <!-- Accent Info Card -->
+                    <div class="bento-card bento-regular bento-accent-card">
+                        <span class="accent-icon">🎂</span>
+                        <h3>Free Delivery</h3>
+                        <p>Complimentary delivery on all orders above ₹2,000 within Chennai.</p>
+                    </div>
+
+                    <!-- Small Card 1 -->
+                    <div class="bento-card bento-small">
+                        <img class="bento-img"
+                            src="https://images.pexels.com/photos/3992131/pexels-photo-3992131.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Cupcakes">
+                        <div class="bento-overlay"></div>
+                        <div class="bento-content">
+                            <h3>Artisan Cupcakes</h3>
+                            <span class="bento-price">₹149 each</span>
+                        </div>
+                    </div>
+
+                    <!-- Regular Card -->
+                    <div class="bento-card bento-regular">
+                        <img class="bento-img"
+                            src="https://images.pexels.com/photos/18254932/pexels-photo-18254932.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Red Velvet">
+                        <div class="bento-overlay"></div>
+                        <div class="bento-content">
+                            <h3>Red Velvet Romance</h3>
+                            <span class="bento-price">₹2,299</span>
+                        </div>
+                    </div>
+
+                    <!-- Small Card 2 -->
+                    <div class="bento-card bento-small bento-accent-card"
+                        style="background: linear-gradient(135deg,#1a1012, #2d1a1e);">
+                        <span class="accent-icon">🍓</span>
+                        <h3 style="color:#ffd1dc;">Seasonal Specials</h3>
+                        <p style="color:rgba(255,209,220,0.75);">Fresh seasonal fruit cakes, available for limited
+                            periods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TICKER ====== -->
+        <section class="ticker-section">
+            <div class="ticker-track">
+                <!-- Duplicate items for seamless loop -->
+                <span class="ticker-item">Handcrafted with Love <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Free Delivery Above ₹2,000 <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Custom Designs Available <span class="ticker-dot"></span></span>
+                <span class="ticker-item">100% Fresh Ingredients <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Eggless Options <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Order 48 Hrs in Advance <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Handcrafted with Love <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Free Delivery Above ₹2,000 <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Custom Designs Available <span class="ticker-dot"></span></span>
+                <span class="ticker-item">100% Fresh Ingredients <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Eggless Options <span class="ticker-dot"></span></span>
+                <span class="ticker-item">Order 48 Hrs in Advance <span class="ticker-dot"></span></span>
+            </div>
+        </section>
+
+        <!-- ====== FEATURED COLLECTION ====== -->
+        <section class="collection-section">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 50px;">
+                    <h2>Featured Collection</h2>
+                    <p>Our most loved creations, chosen by you</p>
+                </div>
+                <div class="collection-grid">
+                    <div class="product-card2">
+                        <div class="product-card2-img">
+                            <img src="https://images.pexels.com/photos/4109996/pexels-photo-4109996.jpeg"
+                                alt="Chocolate Dream">
+                            <span class="product-badge">Bestseller</span>
+                        </div>
+                        <div class="product-card2-body">
+                            <h3>Chocolate Dream</h3>
+                            <p class="desc">Rich Belgian chocolate layers with velvety ganache and a soft, moist crumb.
+                            </p>
+                            <div class="product-card2-footer">
+                                <span class="price">₹2,299</span>
+                                <a href="menu.html" class="btn-cart">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card2">
+                        <div class="product-card2-img">
+                            <img src="https://images.pexels.com/photos/18254932/pexels-photo-18254932.jpeg"
+                                alt="Red Velvet Romance">
+                            <span class="product-badge">Popular</span>
+                        </div>
+                        <div class="product-card2-body">
+                            <h3>Red Velvet Romance</h3>
+                            <p class="desc">Classic red velvet with tangy cream cheese frosting and a hint of cocoa
+                                warmth.</p>
+                            <div class="product-card2-footer">
+                                <span class="price">₹2,299</span>
+                                <a href="menu.html" class="btn-cart">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card2">
+                        <div class="product-card2-img">
+                            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Berry Bliss">
+                        </div>
+                        <div class="product-card2-body">
+                            <h3>Berry Bliss</h3>
+                            <p class="desc">Seasonal berry compote between layers of light vanilla sponge and fresh
+                                cream.</p>
+                            <div class="product-card2-footer">
+                                <span class="price">₹2,299</span>
+                                <a href="menu.html" class="btn-cart">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card2">
+                        <div class="product-card2-img">
+                            <img src="https://images.pexels.com/photos/10891145/pexels-photo-10891145.jpeg"
+                                alt="Vanilla Cloud">
+                            <span class="product-badge">Light &amp; Airy</span>
+                        </div>
+                        <div class="product-card2-body">
+                            <h3>Vanilla Cloud</h3>
+                            <p class="desc">Silky smooth vanilla buttercream on a featherlight sponge — timeless and
+                                elegant.</p>
+                            <div class="product-card2-footer">
+                                <span class="price">₹1,999</span>
+                                <a href="menu.html" class="btn-cart">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card2">
+                        <div class="product-card2-img">
+                            <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Mango Tango">
+                            <span class="product-badge">Seasonal</span>
+                        </div>
+                        <div class="product-card2-body">
+                            <h3>Mango Tango</h3>
+                            <p class="desc">Sun-ripened Alphonso mango mousse on a buttery biscuit base — pure tropical
+                                bliss.</p>
+                            <div class="product-card2-footer">
+                                <span class="price">₹2,299</span>
+                                <a href="menu.html" class="btn-cart">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card2">
+                        <div class="product-card2-img">
+                            <img src="https://images.pexels.com/photos/4396305/pexels-photo-4396305.jpeg"
+                                alt="Pistachio Perfection">
+                        </div>
+                        <div class="product-card2-body">
+                            <h3>Pistachio Perfection</h3>
+                            <p class="desc">Roasted pistachio cream folded into silky layers, with a rose-water whisper.
+                            </p>
+                            <div class="product-card2-footer">
+                                <span class="price">₹2,299</span>
+                                <a href="menu.html" class="btn-cart">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== HOW IT WORKS ====== -->
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How It Works</h2>
+                    <p>Getting your dream cake is easier than ever</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Choose &amp; Customise</h4>
+                        <p>Browse our menu or describe your dream design. We love unique requests!</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Place Your Order</h4>
+                        <p>Confirm flavour, size, and date. We recommend ordering 48 hours in advance.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>We Bake with Love</h4>
+                        <p>Our bakers craft your cake fresh with the finest, locally sourced ingredients.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Delivered Fresh</h4>
+                        <p>Receive your masterpiece safely packaged at your doorstep, ready to celebrate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TESTIMONIALS ====== -->
+        <section class="testimonials2-section">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 50px;">
+                    <h2>What Our Customers Say</h2>
+                    <p>Real stories from people who celebrated with NILA BAKES</p>
+                </div>
+                <div class="testimonials2-grid">
+                    <div class="testimonial2-card">
+                        <div class="stars">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                                class="star">★</span><span class="star">★</span>
+                        </div>
+                        <p>"The best chocolate cake I've ever had! It was the star of my daughter's birthday party. So
+                            moist and perfectly sweet."</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">S</div>
+                            <div class="reviewer-info">
+                                <h5>Sarah Johnson</h5>
+                                <span>Birthday Order</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial2-card">
+                        <div class="stars">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                                class="star">★</span><span class="star">★</span>
+                        </div>
+                        <p>"Their custom design process is incredible. They took my vague idea and turned it into a
+                            breathtaking masterpiece for our anniversary."</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">M</div>
+                            <div class="reviewer-info">
+                                <h5>Michael Reed</h5>
+                                <span>Anniversary Order</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial2-card">
+                        <div class="stars">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                                class="star">★</span><span class="star">★</span>
+                        </div>
+                        <p>"Nila Bakes is my go-to for every celebration. The eggless options are just as delicious and
+                            fluffy as the regular ones. Amazing!"</p>
+                        <div class="reviewer">
+                            <div class="reviewer-avatar">P</div>
+                            <div class="reviewer-info">
+                                <h5>Priya Sharma</h5>
+                                <span>Custom Eggless Order</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== CTA BANNER ====== -->
+        <section class="cta2-section">
+            <div class="container">
+                <div class="cta2-inner">
+                    <h2>Ready to Create Something Sweet?</h2>
+                    <p>Our bakers are waiting to bring your vision to life. Get a free consultation and let's craft your
+                        perfect cake today.</p>
+                    <a href="customize.html" class="btn-glow">Start Custom Order</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">
+                    <div class="logo-icon"><img src="logo.svg" alt="NILA BAKES Logo"></div>
+                    <span>NILA BAKES</span>
+                </div>
+                <p>Bringing sweetness and elegance to your special celebrations since our home kitchen beginnings.
+                    Handcrafted with love, shared with joy.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home 1</a></li>
+                    <li><a href="index2.html">Home 2</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p>12, Anna Salai, Chennai, Tamil Nadu, India<br>Phone: +91 94440 12345<br>Email: hello@nilabakes.com
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com/nilabakes" class="social-icon" title="Facebook" aria-label="Facebook"
+                        target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/nilabakes" class="social-icon" title="Instagram"
+                        aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright-bar">
+        <div class="container">
+            <p>&copy; 2026 NILA BAKES. Handcrafted with love. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="login-form">
+                <div class="auth-header text-center mb-40">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="logo.svg" alt="Logo">
+                        </div>
+                        <span>NILA BAKES</span>
+                    </a>
+                    <h2>Login</h2>
+                    <p>Login to your NILA BAKES account</p>
+                </div>
+                <form action="#">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group" style="position: relative;">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                        <a href="#"
+                            style="position: absolute; right: 0; top: 0; font-size: 0.8rem; color: var(--accent-color); font-weight: 600;">Forgot?</a>
+                    </div>
+                    <button type="submit" class="btn mt-20" style="width: 100%; padding: 18px;">Login</button>
+                </form>
+                <div class="auth-toggle text-center mt-30">
+                    Don't have an account? <a href="#" id="show-signup"
+                        style="color: var(--accent-color); font-weight: 700;">Sign Up</a>
+                </div>
+            </div>
+            <div id="signup-form" style="display: none;">
+                <div class="auth-header text-center mb-40">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon"><img src="logo.svg" alt="NILA BAKES Logo"></div>
+                        <span>NILA BAKES</span>
+                    </a>
+                    <h2>Sign Up</h2>
+                    <p>Create your NILA BAKES account</p>
+                </div>
+                <form action="#">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn mt-20" style="width: 100%; padding: 18px;">Sign Up</button>
+                </form>
+                <div class="auth-toggle text-center mt-30">
+                    Already have an account? <a href="#" id="show-login"
+                        style="color: var(--accent-color); font-weight: 700;">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <div class="scroll-nav">
+        <button class="scroll-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6" />
+            </svg>
+        </button>
+    </div>
+</body>
+
+</html>

@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 window.location.href = href;
-            }, 400); // Matches the contentFadeOut CSS duration
+            }, 50); // Matches the contentFadeOut CSS duration
         });
     });
 
