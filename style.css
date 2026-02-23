@@ -283,7 +283,9 @@ img {
 }
 
 .btn:focus-visible {
-    box-shadow: 0 0 0 4px rgba(255, 183, 197, 0.5);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--background), 0 0 0 6px var(--accent-color);
+    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -1425,6 +1427,54 @@ footer {
     margin-top: 10px;
 }
 
+.card-qty-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0 20px;
+    background: var(--primary-light);
+    padding: 5px;
+    border-radius: 12px;
+    width: fit-content;
+    align-self: center;
+}
+
+[data-theme="dark"] .card-qty-selector {
+    background: #2d2627;
+}
+
+.card-qty-selector button {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    background: var(--background);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.card-qty-selector button:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.card-qty-selector input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
 .qty-btn {
     width: 28px;
     height: 28px;
@@ -1570,4 +1620,25 @@ footer {
         width: 100%;
         right: -100%;
     }
+}
+
+/* Toast Notification */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.toast-notification.active {
+    transform: translateX(-50%) translateY(0);
 }
