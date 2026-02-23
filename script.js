@@ -441,18 +441,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             e.preventDefault();
-            document.body.classList.add('fade-out');
+            document.body.classList.add('slide-out');
 
             setTimeout(() => {
                 window.location.href = href;
-            }, 350); // Slightly less than CSS duration for snappiness
+            }, 450); // Matches the slideOut CSS duration
         });
     });
 
-    // Handle back button (on pageshow, remove fade-out if present)
+    // Handle back button (on pageshow, remove slide-out if present)
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
-            document.body.classList.remove('fade-out');
+            document.body.classList.remove('slide-out');
         }
     });
 });
