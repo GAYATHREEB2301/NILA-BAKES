@@ -86,34 +86,36 @@
         .hero2-content h1 {
             font-size: clamp(3rem, 9vw, 6rem);
             line-height: 1.05;
-            color: #ffffff !important;
+            color: #fff;
             font-weight: 900;
             margin-bottom: 24px;
             letter-spacing: -1px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
         }
 
-        .hero2-content h1 span {
-            background: linear-gradient(135deg, #ffd1dc, #d9a0a0, #ffd1dc);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 4s linear infinite;
+        /* Light theme: hero heading becomes dark for readability */
+        :root:not([data-theme='dark']) .hero2-content h1 {
+            color: var(--heading-color) !important;
+            text-shadow: none;
         }
 
-        @keyframes shimmer {
-            to {
-                background-position: 200% center;
-            }
-        }
+
+
 
         .hero2-content p {
             font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            color: rgba(255, 255, 255, 0.82) !important;
+            color: rgba(255, 255, 255, 0.88);
             max-width: 620px;
             margin: 0 auto 40px;
             font-weight: 400;
             line-height: 1.7;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Light theme: hero subtitle becomes dark muted text */
+        :root:not([data-theme='dark']) .hero2-content p {
+            color: var(--text-muted) !important;
+            text-shadow: none;
         }
 
         .hero2-cta {
@@ -162,6 +164,18 @@
             border-color: rgba(255, 255, 255, 0.7);
             transform: translateY(-4px);
             color: #fff;
+        }
+
+        /* Light theme: ghost button uses dark text so it's visible on white background */
+        :root:not([data-theme='dark']) .btn-ghost {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        :root:not([data-theme='dark']) .btn-ghost:hover {
+            background: var(--primary-light);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
         }
 
         /* Floating decorative circles */
@@ -256,12 +270,14 @@
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             grid-template-rows: auto;
-            gap: 20px;
+            gap: 24px;
         }
 
         .bento-card {
+            grid-column: span 1 !important;
+            min-height: 320px !important;
             border-radius: 24px;
             overflow: hidden;
             position: relative;
@@ -273,34 +289,14 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
         }
 
-        /* Large feature card — row 1 left (7 cols) */
-        .bento-large {
-            grid-column: span 7;
-            min-height: 420px;
-            background: linear-gradient(135deg, #2d1a1e, #1a1012);
-        }
-
-        /* Tall card — row 1 right (5 cols) */
-        .bento-tall {
-            grid-column: span 5;
-            min-height: 420px;
-        }
-
-        /* Row 2: three equal cards (4+4+4 = 12) */
-        .bento-wide {
-            grid-column: span 4;
-            min-height: 270px;
-        }
-
-        .bento-regular {
-            grid-column: span 4;
-            min-height: 270px;
-        }
-
-        /* Row 3: two equal cards (6+6 = 12) */
+        /* Standardized card sizes for uniform grid rows */
+        .bento-large,
+        .bento-tall,
+        .bento-wide,
+        .bento-regular,
         .bento-small {
-            grid-column: span 6;
-            min-height: 270px;
+            grid-column: span 1;
+            min-height: 320px;
         }
 
         .bento-img {
@@ -617,7 +613,7 @@
 
         .testimonials2-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 28px;
             margin-top: 0;
         }
@@ -630,6 +626,8 @@
             border: 1px solid var(--primary-light);
             position: relative;
             transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial2-card:hover {
@@ -665,13 +663,16 @@
             color: var(--text-color);
             font-style: italic;
             line-height: 1.7;
-            margin-bottom: 22px;
+            margin-bottom: 28px;
+            flex-grow: 1;
         }
 
         .reviewer {
             display: flex;
             align-items: center;
             gap: 14px;
+            margin-top: auto;
+            padding-top: 10px;
         }
 
         .reviewer-avatar {
@@ -776,39 +777,31 @@
             height: 220px;
         }
 
-        /* ---- TABLET (≤ 1024px) ---- */
-        @media (max-width: 1024px) {
-            .bento-large {
-                grid-column: span 7;
-                min-height: 340px;
+        /* ---- TABLET (≤ 1080px) ---- */
+        @media (max-width: 1080px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
 
-            .bento-tall {
-                grid-column: span 5;
-                min-height: 340px;
-            }
-
-            /* Row 2: 2 cards left + 1 accent right */
-            .bento-wide {
-                grid-column: span 4;
-                min-height: 250px;
-            }
-
-            .bento-regular {
-                grid-column: span 4;
-                min-height: 250px;
-            }
-
-            /* Row 3: equal halves */
+            .bento-card,
+            .bento-large,
+            .bento-tall,
+            .bento-wide,
+            .bento-regular,
             .bento-small {
-                grid-column: span 6;
-                min-height: 250px;
+                grid-column: span 1 !important;
+                min-height: 300px !important;
             }
 
             /* 2 columns on tablet */
             .collection-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 22px;
+            }
+
+            .testimonials2-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -819,31 +812,19 @@
                 margin: 0 16px;
             }
 
-            /* Row 1: full-width stacked */
-            .bento-large {
-                grid-column: span 12;
-                min-height: 300px;
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
-            .bento-tall {
-                grid-column: span 12;
-                min-height: 260px;
-            }
-
-            /* Row 2+3: two equal halves each */
-            .bento-wide {
-                grid-column: span 6;
-                min-height: 220px;
-            }
-
-            .bento-regular {
-                grid-column: span 6;
-                min-height: 220px;
-            }
-
+            .bento-card,
+            .bento-large,
+            .bento-tall,
+            .bento-wide,
+            .bento-regular,
             .bento-small {
-                grid-column: span 6;
-                min-height: 220px;
+                grid-column: span 1 !important;
+                min-height: 280px !important;
             }
 
             /* Still 2 columns on small tablet */
@@ -1031,7 +1012,7 @@
         <section class="hero2 pb-0 pt-0">
             <div class="hero2-content">
                 <div class="hero2-badge">✦ Artisan Cake Studio</div>
-                <h1>Every Bite is a<br><span>Masterpiece</span></h1>
+                <h1>Every Bite is a<br>Masterpiece</h1>
                 <p>We transform the finest ingredients into edible works of art. Your vision, our craftsmanship — the
                     perfect celebration starts here.</p>
                 <div class="hero2-cta">
@@ -1075,7 +1056,8 @@
 
                 <div class="bento-grid">
                     <!-- Large Feature Card -->
-                    <div class="bento-card bento-large">
+                    <!-- Card 1 -->
+                    <div class="bento-card bento-regular">
                         <img class="bento-img"
                             src="https://images.pexels.com/photos/1702373/pexels-photo-1702373.jpeg?auto=compress&cs=tinysrgb&w=1200"
                             alt="Signature Chocolate Cake">
@@ -1083,13 +1065,13 @@
                         <div class="bento-content">
                             <span class="bento-tag">Bestseller</span>
                             <h3>Dark Belgian Chocolate Torte</h3>
-                            <p>Layers of rich ganache and featherlight sponge, finished with hand-piped rosettes.</p>
+                            <p>Layers of rich ganache and featherlight sponge.</p>
                             <span class="bento-price">From ₹2,299</span>
                         </div>
                     </div>
 
-                    <!-- Tall Card -->
-                    <div class="bento-card bento-tall">
+                    <!-- Card 2 -->
+                    <div class="bento-card bento-regular">
                         <img class="bento-img"
                             src="https://images.pexels.com/photos/1854652/pexels-photo-1854652.jpeg?auto=compress&cs=tinysrgb&w=800"
                             alt="Custom Wedding Cake">
@@ -1102,8 +1084,8 @@
                         </div>
                     </div>
 
-                    <!-- Wide Card -->
-                    <div class="bento-card bento-wide">
+                    <!-- Card 3 -->
+                    <div class="bento-card bento-regular">
                         <img class="bento-img"
                             src="https://images.pexels.com/photos/4109996/pexels-photo-4109996.jpeg?auto=compress&cs=tinysrgb&w=800"
                             alt="Chocolate Drip Cake">
@@ -1111,48 +1093,51 @@
                         <div class="bento-content">
                             <span class="bento-tag">New</span>
                             <h3>Signature Chocolate Dream</h3>
+                            <p>A chocolate lover's ultimate fantasy.</p>
                             <span class="bento-price">₹2,299</span>
                         </div>
                     </div>
 
-                    <!-- Accent Info Card -->
-                    <div class="bento-card bento-regular bento-accent-card">
-                        <span class="accent-icon">🎂</span>
-                        <h3>Free Delivery</h3>
-                        <p>Complimentary delivery on all orders above ₹2,000 within Chennai.</p>
+                    <!-- Card 4 -->
+                    <div class="bento-card bento-regular">
+                        <img class="bento-img"
+                            src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Berry Bliss">
+                        <div class="bento-overlay"></div>
+                        <div class="bento-content">
+                            <span class="bento-tag">Seasonal</span>
+                            <h3>Berry Bliss Torte</h3>
+                            <p>Fresh berries and light vanilla sponge.</p>
+                            <span class="bento-price">₹2,299</span>
+                        </div>
                     </div>
 
-                    <!-- Small Card 1 -->
-                    <div class="bento-card bento-small">
+                    <!-- Card 5 -->
+                    <div class="bento-card bento-regular">
                         <img class="bento-img"
                             src="https://images.pexels.com/photos/3992131/pexels-photo-3992131.jpeg?auto=compress&cs=tinysrgb&w=600"
                             alt="Cupcakes">
                         <div class="bento-overlay"></div>
                         <div class="bento-content">
+                            <span class="bento-tag">Treats</span>
                             <h3>Artisan Cupcakes</h3>
+                            <p>Perfectly bitesized moments of joy.</p>
                             <span class="bento-price">₹149 each</span>
                         </div>
                     </div>
 
-                    <!-- Regular Card -->
+                    <!-- Card 6 -->
                     <div class="bento-card bento-regular">
                         <img class="bento-img"
                             src="https://images.pexels.com/photos/18254932/pexels-photo-18254932.jpeg?auto=compress&cs=tinysrgb&w=800"
                             alt="Red Velvet">
                         <div class="bento-overlay"></div>
                         <div class="bento-content">
+                            <span class="bento-tag">Classic</span>
                             <h3>Red Velvet Romance</h3>
+                            <p>Classic red velvet with cream cheese.</p>
                             <span class="bento-price">₹2,299</span>
                         </div>
-                    </div>
-
-                    <!-- Small Card 2 -->
-                    <div class="bento-card bento-small bento-accent-card"
-                        style="background: linear-gradient(135deg,#1a1012, #2d1a1e);">
-                        <span class="accent-icon">🍓</span>
-                        <h3 style="color:#ffd1dc;">Seasonal Specials</h3>
-                        <p style="color:rgba(255,209,220,0.75);">Fresh seasonal fruit cakes, available for limited
-                            periods.</p>
                     </div>
                 </div>
             </div>

@@ -15,8 +15,10 @@
     --border-radius: 20px;
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --header-height: 80px;
-    --heading-color: #c0635a;
-    /* Light red — clear on white/light backgrounds */
+    --heading-color: #a64d4d;
+    /* Rich Rose - highly readable on light backgrounds */
+    --accent-text: #8e4444;
+    /* Even darker for accessibility on light backgrounds */
 }
 
 [data-theme="dark"] {
@@ -34,6 +36,7 @@
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     --heading-color: #e88880;
     /* Softer light red for dark backgrounds */
+    --accent-text: #f6c0c0;
 }
 
 * {
@@ -163,7 +166,7 @@ img {
 }
 
 .text-accent {
-    color: var(--accent-color);
+    color: var(--accent-text);
 }
 
 .mx-auto {
@@ -269,10 +272,15 @@ img {
 
 .btn:hover {
     background-color: var(--accent-color);
-    color: #ffffff;
-    /* White text on hover for better contrast */
+    color: #1a1a1a;
+    /* Dark text on light accent background */
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(217, 160, 160, 0.4);
+}
+
+[data-theme="dark"] .btn:hover {
+    color: #ffffff;
+    /* White text on brighter accent in dark mode */
 }
 
 .btn:active {
@@ -291,11 +299,45 @@ img {
     border: 2px solid var(--primary-color);
 }
 
-.btn-outline:hover {
-    background: var(--primary-color);
+.cta-banner {
+    background-color: var(--primary-color);
+    padding: 80px 40px;
+    border-radius: 50px;
+    color: #1a1a1a;
+    box-shadow: var(--shadow);
 }
 
-/* Logo Styles */
+[data-theme="dark"] .cta-banner {
+    background-color: var(--card-bg);
+    color: white;
+    border: 1px solid var(--primary-light);
+}
+
+.cta-banner h2 {
+    color: inherit !important;
+}
+
+.btn-cta {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.btn-cta:hover {
+    background-color: var(--accent-color);
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .btn-cta {
+    background-color: var(--primary-color);
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .btn-cta:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Sections */
 .logo {
     display: flex;
     align-items: center;
@@ -897,8 +939,17 @@ footer {
 
 .auth-header .logo {
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 1.6rem;
+    display: flex !important;
+    /* Ensure it's always flex */
+}
+
+.auth-header .logo span {
+    display: inline-block !important;
+    /* Force visibility in modal always */
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .auth-header h2 {
@@ -1040,8 +1091,29 @@ footer {
     }
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* Responsive Header Adjustments for Small Desktops */
+@media (min-width: 1081px) and (max-width: 1250px) {
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+    }
+
+    .header-right-actions {
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        gap: 8px;
+    }
+}
+
+/* Mobile Menu Triggered at 1080px to prevent breakage */
+@media (max-width: 1080px) {
     .nav-menu {
         position: fixed;
         top: 0;

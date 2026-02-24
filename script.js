@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (dropdown) {
             link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 992) {
+                if (window.innerWidth <= 1080) {
                     e.preventDefault();
                     item.classList.toggle('active');
                 }
@@ -435,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 href.startsWith('javascript:') ||
                 link.id === 'login-trigger' ||
                 link.classList.contains('btn') && (link.textContent.toLowerCase().includes('add to cart') || link.textContent.toLowerCase().includes('order now')) ||
-                link.closest('.dropdown-menu') && window.innerWidth <= 992 && link.parentElement.querySelector('.dropdown-menu') // Mobile dropdown parent
+                link.closest('.dropdown-menu') && window.innerWidth <= 1080 && link.parentElement.querySelector('.dropdown-menu') // Mobile dropdown parent
             ) {
                 return;
             }
